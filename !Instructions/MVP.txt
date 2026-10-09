@@ -1,0 +1,40 @@
+MVP
+
+An AI study assistant that recommends the most relevant learning resources based on a student's subjects, topics, goals, learning preferences, and performance.
+
+### MVP Features
+
+1. **Student Profile**
+
+   * Name, subjects, topics, goal, available study time, preferred resource type.
+
+2. **AI Resource Recommendation**
+
+   * Recommends relevant videos, PDFs, notes, articles, and research papers.
+   * Resources are ranked according to the student's profile and topic.
+
+3. **ML Personalization**
+
+   * Uses TF-IDF + Cosine Similarity to match students with suitable resources.
+   * Quiz performance can be used to identify weak/strong topics and improve recommendations.
+
+4. **Adaptive Quiz**
+
+   * Short topic-based quizzes.
+   * Performance updates the student's learning level.
+
+5. **AI Study Planner**
+
+   * Generates a daily study plan based on available time, weak topics, goals, and upcoming targets.
+
+### Basic Flow
+
+**Student Details → Learning Profile → Resource Search → ML Ranking → Personalized Recommendations → Quiz → Updated Recommendations**
+
+### MVP Tech
+
+**Frontend:** HTML, CSS, JavaScript
+**Storage:** LocalStorage
+**ML:** Python + Scikit-learn
+**Backend:** Flask/FastAPI
+**AI:** LLM API for study planning and explanations
