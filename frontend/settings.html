@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Settings — StudyLens</title>
+  <meta name="description" content="Edit your StudyLens profile, subjects and learning preferences any time." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+  <header class="topbar"><div class="topbar-inner" data-nav></div></header>
+
+  <main class="page">
+    <p class="eyebrow">Preferences</p>
+    <h1>Settings</h1>
+    <p class="lede">Everything here feeds the recommendation engine — change it any time and your plans and rankings adapt instantly.</p>
+
+    <form id="settings-form" class="settings-grid" style="margin-top:30px">
+      <nav class="settings-index" aria-label="Settings sections">
+        <a href="#sec-profile">Profile</a>
+        <a href="#sec-goal">Goal &amp; time</a>
+        <a href="#sec-style">Learning style</a>
+        <a href="#sec-subjects">Subjects</a>
+        <a href="#sec-data">Data</a>
+      </nav>
+
+      <div>
+        <!-- profile -->
+        <section class="card settings-section" id="sec-profile">
+          <h2>Profile</h2>
+          <div class="field">
+            <label for="fullName">Full name</label>
+            <input class="input" id="fullName" type="text" autocomplete="name" />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input class="input" id="email" type="email" autocomplete="email" />
+          </div>
+          <div class="field" style="margin-bottom:0">
+            <label for="grade">Class / grade</label>
+            <select class="select" id="grade">
+              <option>Class 10</option>
+              <option>Class 11</option>
+              <option>Class 12</option>
+              <option>Dropper / Repeat year</option>
+              <option>Undergraduate</option>
+            </select>
+          </div>
+        </section>
+
+        <!-- goal & time -->
+        <section class="card settings-section" id="sec-goal">
+          <h2>Goal &amp; time</h2>
+          <div class="field">
+            <label for="goal">Goal</label>
+            <select class="select" id="goal">
+              <option>Crack a competitive exam</option>
+              <option>Score 90%+ in board exams</option>
+              <option>Build strong fundamentals</option>
+              <option>Catch up on a weak subject</option>
+              <option>Get into a dream college</option>
+            </select>
+          </div>
+          <div class="field" style="margin-bottom:0">
+            <span class="field-label" id="time-label">Available study time per day</span>
+            <div class="time-chips" role="radiogroup" aria-labelledby="time-label" id="time-chips">
+              <button type="button" class="time-chip" data-min="30" role="radio">30 min</button>
+              <button type="button" class="time-chip" data-min="60" role="radio">1 hour</button>
+              <button type="button" class="time-chip" data-min="90" role="radio">1.5 hours</button>
+              <button type="button" class="time-chip" data-min="120" role="radio">2 hours</button>
+              <button type="button" class="time-chip" data-min="180" role="radio">3+ hours</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- learning style -->
+        <section class="card settings-section" id="sec-style">
+          <h2>Learning style</h2>
+          <div class="field">
+            <span class="field-label">How you learn best</span>
+            <div class="choice-grid choice-grid--2" id="learn-choices">
+              <label class="choice"><input type="radio" name="learnersType" value="video" /><span class="choice-key">▶</span><span><span class="choice-title">Video-first</span><span class="choice-sub">Lectures and visual explainers</span></span></label>
+              <label class="choice"><input type="radio" name="learnersType" value="reading" /><span class="choice-key">¶</span><span><span class="choice-title">Reading-first</span><span class="choice-sub">Articles, notes and chapters</span></span></label>
+              <label class="choice"><input type="radio" name="learnersType" value="practice" /><span class="choice-key">✓</span><span><span class="choice-title">Practice-first</span><span class="choice-sub">Problem sets and question banks</span></span></label>
+              <label class="choice"><input type="radio" name="learnersType" value="mixing" /><span class="choice-key">✦</span><span><span class="choice-title">A mix of everything</span><span class="choice-sub">Balance of videos, reading and practice</span></span></label>
+            </div>
+          </div>
+          <div class="field" style="margin-bottom:0">
+            <span class="field-label">Preferred notes style</span>
+            <div class="choice-grid choice-grid--2" id="notes-choices">
+              <label class="choice"><input type="radio" name="notesPref" value="detailed" /><span class="choice-key">≡</span><span><span class="choice-title">Detailed notes</span><span class="choice-sub">Full derivations and explanations</span></span></label>
+              <label class="choice"><input type="radio" name="notesPref" value="brief" /><span class="choice-key">–</span><span><span class="choice-title">Brief summaries</span><span class="choice-sub">Short, high-yield bullet points</span></span></label>
+              <label class="choice"><input type="radio" name="notesPref" value="examples" /><span class="choice-key">{}</span><span><span class="choice-title">Example-driven</span><span class="choice-sub">Solved examples over theory</span></span></label>
+            </div>
+          </div>
+        </section>
+
+        <!-- subjects -->
+        <section class="card settings-section" id="sec-subjects">
+          <h2>Subjects</h2>
+          <p style="font-size:.88rem">Pick the subjects you’re tracking. Unchecking a subject keeps its history but hides it from plans and recommendations.</p>
+          <div class="choice-grid choice-grid--2" id="subject-choices"></div>
+          <div class="field" style="margin:18px 0 0">
+            <label for="focus-select">Pin a focus subject</label>
+            <select class="select" id="focus-select"></select>
+            <p class="field-hint">Pinned subject wins the “focus of the day” slot; otherwise it rotates daily.</p>
+          </div>
+        </section>
+
+        <!-- data -->
+        <section class="card settings-section danger-zone" id="sec-data">
+          <h2>Data</h2>
+          <p style="font-size:.88rem">Your profile, quiz history and preferences live in this browser’s local storage (<code>studylens_profile</code>). Nothing leaves your device.</p>
+          <div class="btn-row">
+            <button type="button" class="btn btn--ghost" id="export-btn">Export profile (JSON)</button>
+            <button type="button" class="btn btn--danger" id="reset-btn">Reset everything</button>
+          </div>
+          <p style="font-size:.8rem;color:var(--muted);margin:14px 0 0" id="data-stats"></p>
+        </section>
+
+        <div class="save-bar">
+          <p id="save-hint">Changes apply to plans, quizzes and rankings.</p>
+          <button type="submit" class="btn btn--primary">Save changes</button>
+        </div>
+      </div>
+    </form>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/quiz-data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/settings.js"></script>
+</body>
+</html>

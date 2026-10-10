@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Results — StudyLens</title>
+  <meta name="description" content="Your quiz result: score, assigned level, weak topics and personalised next steps." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+  <header class="topbar"><div class="topbar-inner" data-nav></div></header>
+
+  <main class="page page--narrow" style="max-width:860px">
+    <p class="eyebrow">Attempt reviewed</p>
+    <h1 id="res-title">Result</h1>
+
+    <!-- hero: score + level -->
+    <section class="card result-hero" aria-labelledby="res-title">
+      <div class="score-ring">
+        <svg width="150" height="150" viewBox="0 0 150 150" aria-hidden="true">
+          <circle class="track" cx="75" cy="75" r="64" fill="none" stroke-width="11" />
+          <circle class="val" id="ring" cx="75" cy="75" r="64" fill="none" stroke-width="11"
+                  stroke-dasharray="402" stroke-dashoffset="402" />
+        </svg>
+        <div class="mid">
+          <span class="pct" id="score-pct">0%</span>
+          <span class="of" id="score-of">0 / 0 correct</span>
+        </div>
+      </div>
+      <div>
+        <span class="chip chip--accent" id="res-subject">Subject</span>
+        <h2 id="res-verdict" style="margin:12px 0 6px">…</h2>
+        <p id="res-blurb" style="margin-bottom:14px"></p>
+        <p style="font-size:.8rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:0">Level</p>
+        <div style="display:flex;align-items:center;gap:12px">
+          <b style="font-family:var(--font-display);font-size:1.25rem" id="res-level">—</b>
+          <span class="chip" id="res-delta"></span>
+        </div>
+        <div class="level-track" aria-hidden="true">
+          <span class="level-seg" data-lv="0"></span>
+          <span class="level-seg" data-lv="1"></span>
+          <span class="level-seg" data-lv="2"></span>
+          <span class="level-seg" data-lv="3"></span>
+        </div>
+        <div class="btn-row" style="margin-top:18px">
+          <a class="btn btn--primary" id="go-subject" href="subject.html">Strengthen weak topics</a>
+          <a class="btn btn--ghost" id="go-again" href="quiz.html">Retake test</a>
+          <a class="btn btn--ghost" href="dashboard.html">Dashboard</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- weak topics -->
+    <div class="section-head"><h2>Weak topics detected</h2></div>
+    <div class="card">
+      <div class="chip-row" id="weak-chips" style="margin-bottom:14px"></div>
+      <div class="topic-bars" id="topic-bars"></div>
+    </div>
+
+    <!-- next steps -->
+    <div class="section-head"><h2>Your next steps</h2></div>
+    <ul class="advice-list" id="advice-list"></ul>
+
+    <!-- review -->
+    <div class="section-head"><h2>Answer review</h2></div>
+    <div id="review-list"></div>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/quiz-data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/results.js"></script>
+</body>
+</html>
